@@ -5,7 +5,7 @@ from flask import current_app, url_for, request, redirect, session
 
 
 class OAuthSignIn(object):
-    providers = None
+    providers = None 
 
     def __init__(self, provider_name):
         self.provider_name = provider_name
