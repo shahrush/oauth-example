@@ -3,15 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user,\
     current_user
 from oauth import OAuthSignIn
+from configurations import DROPBOX
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'top secret!'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SECRET_KEY'] = DROPBOX['SECRET_KEY']
+app.config['SQLALCHEMY_DATABASE_URI'] = DROPBOX['SQLALCHEMY_DATABASE_URI']
 app.config['OAUTH_CREDENTIALS'] = {
     'dropbox':{
-        'id': 'vrq6xj45u0c023d',
-        'secret': 'xxejbrl2s8wl3c8'
+        'id': DROPBOX['OAUTH_CREDENTIALS']['dropbox']['id'],
+        'secret': DROPBOX['OAUTH_CREDENTIALS']['dropbox']['secret']
     }
 
 }
